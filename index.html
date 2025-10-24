@@ -5,22 +5,166 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Real Estate Templates</title>
   <style>
-body {
-  margin: 0;
-  padding: 0;
-  font-family:Cryillic Bodoni Condensed, questrial;
-  background-color: #032b22;
-  color: white;
-}
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Bodoni Moda', 'Questrial', serif;
+      background-color: #032b22;
+      color: white;
+    }
 
-/* this gives your content nice margins */
-.main-content {
-  max-width: 1100px;   /* controls line width */
-  margin: 0 auto;      /* centers the block */
-  padding: 0 40px;     /* adds left/right margin like a page */
-  text-align: left;    /* keeps text aligned left */
-}
+    .main-content {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 40px;
+      text-align: left;
+    }
 
+    .hero {
+      position: relative;
+      text-align: center;
+      color: white;
+      margin-bottom: 40px;
+    }
+
+    .hero-img {
+      width: 100%;
+      height: 400px;
+      object-fit: cover;
+      filter: brightness(0.7);
+    }
+
+    .hero-text {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 10;
+    }
+
+    .hero-text h1 {
+      font-size: 4rem;
+      margin: 0;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
+    }
+
+    .hero-text p {
+      font-size: 1.5rem;
+      margin: 10px 0 0;
+      text-shadow: 1px 1px 3px rgba(0,0,0,0.8);
+    }
+
+    /* Sidebar Styles */
+    .sidebar {
+      height: 100%;
+      width: 0;
+      position: fixed;
+      z-index: 1000;
+      top: 0;
+      left: 0;
+      background-color: #111;
+      overflow-x: hidden;
+      transition: 0.3s;
+      padding-top: 60px;
+    }
+
+    .sidebar a {
+      padding: 15px 30px;
+      text-decoration: none;
+      font-size: 1.2rem;
+      color: white;
+      display: block;
+      transition: 0.3s;
+    }
+
+    .sidebar a:hover {
+      background-color: #e75480;
+    }
+
+    .sidebar .close-btn {
+      position: absolute;
+      top: 10px;
+      right: 25px;
+      font-size: 36px;
+      background: none;
+      border: none;
+      color: white;
+      cursor: pointer;
+    }
+
+    .open-btn {
+      position: fixed;
+      top: 20px;
+      left: 20px;
+      z-index: 999;
+      font-size: 20px;
+      cursor: pointer;
+      background-color: #e75480;
+      color: white;
+      padding: 10px 15px;
+      border: none;
+      border-radius: 5px;
+    }
+
+    /* Modal Styles */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 2000;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      background-color: rgba(0,0,0,0.8);
+    }
+
+    .modal-content {
+      background-color: #1c1c1c;
+      margin: 5% auto;
+      padding: 20px;
+      border-radius: 12px;
+      width: 80%;
+      max-width: 600px;
+    }
+
+    .modal-close {
+      color: #aaa;
+      float: right;
+      font-size: 28px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .modal-close:hover {
+      color: white;
+    }
+
+    .modal-image {
+      width: 100%;
+      border-radius: 8px;
+      margin-bottom: 20px;
+    }
+
+    .modal-body h3 {
+      color: #fffef1;
+      margin-bottom: 15px;
+    }
+
+    .modal-btn {
+      display: inline-block;
+      background: #e75480;
+      color: white;
+      padding: 12px 24px;
+      text-decoration: none;
+      border-radius: 24px;
+      font-weight: 700;
+      margin-top: 15px;
+    }
+
+    .modal-btn:hover {
+      background: #d34672;
+    }
 
     header {
       text-align: center;
@@ -28,22 +172,29 @@ body {
     }
 
     header h1 {
-      font-size: 6.0rem;
+      font-size: 4rem;
       font-weight: 900;
       margin-bottom: 10px;
     }
 
     header p {
-      font-size: 1.75rem;
+      font-size: 1.5rem;
       color: #aaa;
     }
 
+    .logo {
+      width: 140px;
+      height: auto;
+      display: block;
+      margin: 0 auto 20px auto;
+    }
+
     section {
-      margin: 40px 20px;
+      margin: 40px 0;
     }
 
     section h2 {
-      font-size: 3.0rem;
+      font-size: 3rem;
       font-weight: 800;
       margin-bottom: 20px;
       border-bottom: 2px solid #fffef1;
@@ -51,22 +202,12 @@ body {
       padding-bottom: 5px;
     }
 
-    .subsection {
-      margin-top: 25px;
-    }
-
-    .subsection h3 {
-      font-size: 1.3rem;
-      font-weight: 700;
-      margin-bottom: 15px;
-      color: #fffef1;
-    }
-
     .card-container {
       display: flex;
       flex-wrap: wrap;
       gap: 20px;
       justify-content: flex-start;
+      margin-top: 30px;
     }
 
     .card {
@@ -88,70 +229,102 @@ body {
       object-fit: cover;
     }
 
-    .card h4 {
-      margin: 15px 0 10px;
+    .card h3 {
+      margin: 15px 10px 10px;
       font-size: 1.1rem;
       font-weight: 700;
       text-align: center;
     }
 
     .card p {
-      margin: 0 0 15px;
-      font-size: 0.9rem;
+      margin: 0 10px 15px;
+      font-size: 0.85rem;
       color: #ccc;
-      text-align: center;
+      text-align: left;
+      line-height: 1.4;
+      max-height: 150px;
+      overflow-y: auto;
     }
 
-    .card button {
-      margin: 0 auto 20px;
+    .card a {
       display: block;
-      padding: 10px 15px;
-      border: none;
-      border-radius: 6px;
-      background: #1db954;
-      color: white;
+      background: #e75480;
+      color: #ffffff;
+      padding: 10px 16px;
+      text-decoration: none;
+      border-radius: 24px;
+      font-weight: 700;
+      text-align: center;
+      width: fit-content;
+      margin: 0 auto 20px;
+    }
+
+    .card a:hover {
+      background: #d34672;
+    }
+
+    .intro-section {
+      background-color: #1c1c1c;
+      border-radius: 12px;
+      padding: 30px;
+      margin: 40px 0;
+    }
+
+    .intro-section h3 {
+      color: #fffef1;
+      font-size: 2rem;
+      margin-bottom: 15px;
+    }
+
+    .intro-section ul {
+      list-style-type: none;
+      padding-left: 0;
+    }
+
+    .intro-section ul li {
+      padding: 8px 0;
+      font-size: 1.1rem;
+    }
+
+    .intro-section ul li:before {
+      content: "✓ ";
+      color: #e75480;
       font-weight: bold;
-      cursor: pointer;
-      transition: background 0.3s;
+      margin-right: 10px;
     }
-   .logo {
-  width: 140px;   
-  height: auto;
-  display: block;
-  margin: 0 auto 20px auto;
-}
-.card a {
-  display: inline-block;
-  background: #e75480;
-  color: #ffffff;
-  padding: 10px 16px;
-  text-decoration: none;
-  border-radius: 24px; /* pill shape */
-  font-weight: 700;
-  border: none;
-  cursor: pointer;
-  margin-top: 10px;
 
-  /* center it */
-  margin-left: auto;
-  margin-right: auto;
-  display: block;
-  text-align: center;
-  width: fit-content;
-}
-
-.card a:hover {
-  background: #d34672;
-}
-
-
-
+    .intro-section a {
+      color: #e75480;
+      font-weight: bold;
+      text-decoration: none;
     }
-    </style>
-  </head>
-</header>
+
+    .intro-section a:hover {
+      text-decoration: underline;
+    }
+
+    @media (max-width: 768px) {
+      .hero-text h1 {
+        font-size: 2.5rem;
+      }
+
+      header h1 {
+        font-size: 2.5rem;
+      }
+
+      section h2 {
+        font-size: 2rem;
+      }
+
+      .card {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
 <body>
-<!-- Sidebar (same on every page) -->
+
+<!-- Sidebar -->
 <div id="sidebar" class="sidebar">
   <button class="close-btn" onclick="closeSidebar()" aria-label="Close sidebar">×</button>
   <nav>
@@ -164,8 +337,8 @@ body {
   </nav>
 </div>
 
-<!-- Open button (place inside header so it overlays the hero) -->
-<button class="open-btn" onclick="openSidebar()" aria-label="Open content">☰ Content</button>
+<!-- Open Sidebar Button -->
+<button class="open-btn" onclick="openSidebar()" aria-label="Open menu">☰ Menu</button>
 
 <!-- HERO -->
 <header class="hero">
@@ -175,7 +348,8 @@ body {
     <p>Templates organized for success</p>
   </div>
 </header>
-  <!-- MODAL (Add this RIGHT AFTER your closing </header> tag) -->
+
+<!-- MODAL -->
 <div id="templateModal" class="modal">
   <div class="modal-content">
     <span class="modal-close" onclick="closeModal()">&times;</span>
@@ -187,57 +361,46 @@ body {
     </div>
   </div>
 </div>
- 
- <div class="main-content">
+
+<div class="main-content">
   <header>
-    <img src="Ravierra.Co-removebg-preview.png" alt="My Logo" class="logo">
+    <img src="Ravierra.Co-removebg-preview.png" alt="Ravierra.Co Logo" class="logo">
     <h1>Week Of Content</h1>
     <p>Reels, Carousels, and Stories organized for your success</p>
   </header>
-   
 
-<div align="center">
-  <table>
-    <tr>
-      <td width="60%" valign="top">
-        <h3>🚀 Discover Ravierra.Co Templates</h3>
-        <p>
-          As someone who struggled with showing up confidently online, I created a smooth, easy to navigate template website.
-          I am different from other sites because I focus on helping you build your confidence so you can reinforce your self belief on your content journey. 
-          I provide ideas that resonate with your identity because I believe in holding your hand through the journey of finding your voice amongst the noise. 
-        </p>
-        <p>
-          <strong>Key Features:</strong>
-        </p>
-        <ul>
-        </li>Reels,Carousels and Stories that are optimized for the algorithm</li>
-          <li>Reel Scripts that give you confidenceto dabble in talking videos</li>
-          <li>Lead Magnets so you clients feel helped</li>
-          <li>🔒 Secure and reliable platform</li>
-        </ul>
-        <p>
-          <a href="https://ravierraco.my.canva.site/" target="_blank">
-            <strong>👉 Visit Our Website to Learn More</strong>
-          </a>
-        </p>
-      </td>
-      <td width="40%" valign="top">
-        <img src="website pic.jpg" alt="Product Screenshot" width="100%"/>
-      </td>
-    </tr>
-  </table>
-</div>
-    <!-- Content Kit 1 -->
+  <!-- Introduction Section -->
+  <div class="intro-section">
+    <h3>🚀 Discover Ravierra.Co Templates</h3>
+    <p>
+      As someone who struggled with showing up confidently online, I created a smooth, easy to navigate template website.
+      I am different from other sites because I focus on helping you build your confidence so you can reinforce your self belief on your content journey. 
+      I provide ideas that resonate with your identity because I believe in holding your hand through the journey of finding your voice amongst the noise. 
+    </p>
+    <p><strong>Key Features:</strong></p>
+    <ul>
+      <li>Reels, Carousels and Stories that are optimized for the algorithm</li>
+      <li>Reel Scripts that give you confidence to dabble in talking videos</li>
+      <li>Lead Magnets so your clients feel helped</li>
+      <li>Secure and reliable platform</li>
+    </ul>
+    <p>
+      <a href="https://ravierraco.my.canva.site/" target="_blank">
+        👉 Visit Our Website to Learn More
+      </a>
+    </p>
+  </div>
+
+  <!-- REELS Section -->
   <section>
     <h2>REELS</h2>
     <div class="card-container">
       <div class="card">
-          <img src="Pre Approved.png" alt="Reel 1">
-          <h3>Reel Template 1</h3>
-          <p>You're pre-approved and suddenly every house looks like your dream house
+        <img src="Pre Approved.png" alt="Pre Approved Reel">
+        <h3>Pre-Approved Reel</h3>
+        <p>"You're pre-approved and suddenly every house looks like your dream house"
 Comment "APPROVED" ↓ for the complete home buying checklist
-That moment you get your pre-approval letter and suddenly EVERY listing hits different 😍 The fixer-upper you scrolled past last week? Now it's got "potential". 
-That house $20k over budget? "We can make it work". Even the one with the weird layout? "Actually kind of charming".
+That moment you get your pre-approval letter and suddenly EVERY listing hits different 😍 The fixer-upper you scrolled past last week? Now it's got "potential". That house $20k over budget? "We can make it work". Even the one with the weird layout? "Actually kind of charming".
 This is your sign to:
 → Set your ACTUAL budget (not your approval amount)
 → Make your must-have list
@@ -245,56 +408,122 @@ This is your sign to:
 → Take a breath before you fall in love with every single property
 Who else experienced this energy when they got pre-approved? 🙋‍♀️
 #preapproved #homebuyingtips #firsttimehomebuyer #realestatetips #homebuying101 #realestateadvice</p>
-          <a href="https://www.canva.com/design/DAGxkT7oQnE/mG0PZYOs9hhqxW1nua2qLg/view?utm_content=DAGxkT7oQnE&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink&mode=preview">Use Template</a>
-        </div>
-        <div class="card">
-          <img src="$0 000 000 luxury trick I used on this house.png" alt="Reel 2">
-          <h3>Reel Template 2</h3>
-          <a href="https://www.canva.com/design/DAGyJbfUQqc/aipe9ygKkAcHCrEZSpTzjQ/view?utm_content=DAGyJbfUQqc&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink&mode=preview">Use Template</a>
-        </div>
-        <div class="card">
-          <img src="[city] branded spots.png" alt="Reel 3">
-          <h3>Reel Template 3</h3>
-          <a href="https://www.canva.com/design/DAGyIU8aHjI/JBA2WiTfXQSmCCv-M83Wsg/view?utm_content=DAGyIU8aHjI&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink&mode=preview">Use Template</a>
-        </div>
-       </div>
-    </section>
-
-    
-
-    <section>
-      <h2>STORIES</h2>
-      <div class="card-container">
-        <div class="card">
-          <img src="wanted.png" alt="Story 1">
-          <h3>Story Template 1</h3>
-          <a href="https://www.canva.com/design/DAGyJdh5LdA/EDjqZtvYwDtTM2r8tC6M1g/view?utm_content=DAGyJdh5LdA&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink&mode=preview">Use Template</a>
-        </div>
-        <div class="card">
-          <img src="This just in [house sold].png" alt="Story 2">
-          <h3>Story Template 2</h3>
-          <a href="https://www.canva.com/design/DAGyJUOpC-w/adnBGCuRBpfG3Ip0Ldn62A/view?utm_content=DAGyJUOpC-w&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink&mode=preview">Use Template</a>
-        </div>
+        <a href="https://www.canva.com/design/DAGxkT7oQnE/mG0PZYOs9hhqxW1nua2qLg/view?utm_content=DAGxkT7oQnE&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink&mode=preview" target="_blank">Use Template</a>
       </div>
-    </section>
-  
-    <section>
-      <h2>CAROUSELS</h2>
-      <div class="card-container">
-         <div class="card">
-          <img src="If Cost Is Overwhelming Start Here.png" alt="Carousel 1">
-          <h3>Carousel Template 1</h3>
-          <a href="https://www.canva.com/design/DAGyISLUqI8/2FkwsTIc1npSUszzJRcVqQ/view?utm_content=DAGyISLUqI8&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink&mode=preview">Use Template</a>
-        </div>
+      <div class="card">
+        <img src="$0 000 000 luxury trick I used on this house.png" alt="Luxury Trick Reel">
+        <h3>Luxury Trick Reel</h3>
+        <p>"$0 000 000 luxury trick I used in this house"
+Comment "LUXURY" ↓ for the full breakdown
+The $0 styling trick that makes any home look like a million bucks ✨
+I used this in every listing I stage and buyers consistently think these homes are worth MORE than asking. This costs literally nothing, takes 10 minutes, and instantly elevates your space.
+The secret?
+→ Strategic lighting placement
+→ Removing 1/3 of your furniture
+→ Intentional sightlines through doorways
+→ The 3-point styling rule
+Before using this trick: Homes sat on market 45+ days
+After: Average 12 days to offer
+Save this and try it in your own space this weekend 👇
+#luxuryhomes #homestaging #realestatetips #homeselling #interiordesign #stagingtips</p>
+        <a href="https://www.canva.com/design/DAGyJbfUQqc/aipe9ygKkAcHCrEZSpTzjQ/view?utm_content=DAGyJbfUQqc&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink&mode=preview" target="_blank">Use Template</a>
       </div>
-    </section>
-   
+      <div class="card">
+        <img src="[city] branded spots.png" alt="City Branded Spots Reel">
+        <h3>City Spots Reel</h3>
+        <p>"City Branded Spots"
+Comment "SPOTS" ↓ for the complete neighborhood guide
+[City]'s most iconic neighborhoods and where the locals actually hang out 📍
+Everyone asks me "what's the vibe of [City]?" so here's your insider guide to the spots that make [City] feel like HOME:
+Downtown District:
+→ @[localcafe]
+→ @[popularbistro]
+→ @[artgallery]
+Waterfront Area:
+→ @[seafoodspot]
+→ @[parkname]
+→ @[brewpub]
+Historic Quarter:
+→ @[bookstore]
+→ @[farmersmarket]
+→ @[vintageshop]
+Thinking about moving here? These neighborhoods might be your perfect match 🏡
+#cityguide #movingtocity #cityrealestate #localliving #neighborhoodguide #cityliving</p>
+        <a href="https://www.canva.com/design/DAGyIU8aHjI/JBA2WiTfXQSmCCv-M83Wsg/view?utm_content=DAGyIU8aHjI&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink&mode=preview" target="_blank">Use Template</a>
+      </div>
+    </div>
+  </section>
 
+  <!-- STORIES Section -->
+  <section>
+    <h2>STORIES</h2>
+    <div class="card-container">
+      <div class="card">
+        <img src="wanted.png" alt="Wanted Story">
+        <h3>Wanted Story</h3>
+        <p>Engaging story template for your real estate business.</p>
+        <a href="https://www.canva.com/design/DAGyJdh5LdA/EDjqZtvYwDtTM2r8tC6M1g/view?utm_content=DAGyJdh5LdA&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink&mode=preview" target="_blank">Use Template</a>
+      </div>
+      <div class="card">
+        <img src="This just in [house sold].png" alt="House Sold Story">
+        <h3>House Sold Story</h3>
+        <p>Celebrate your latest sale with this story template.</p>
+        <a href="https://www.canva.com/design/DAGyJUOpC-w/adnBGCuRBpfG3Ip0Ldn62A/view?utm_content=DAGyJUOpC-w&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink&mode=preview" target="_blank">Use Template</a>
+      </div>
+    </div>
+  </section>
 
-    
-   
+  <!-- CAROUSELS Section -->
+  <section>
+    <h2>CAROUSELS</h2>
+    <div class="card-container">
+      <div class="card">
+        <img src="If Cost Is Overwhelming Start Here.png" alt="Affordable Housing Carousel">
+        <h3>Affordable Housing Guide</h3>
+        <p>"If cost is overwhelming start here [city] guide"
+Comment "AFFORDABLE" ↓ for the full neighborhood breakdown
+Feeling priced out of [City]? Start HERE 👇
+[City] prices got you stressed? You're not alone. But here's what most people don't realize: there are STILL affordable pockets in [City] where your money goes further.
+Hidden gem neighborhoods under $[price]:
+→ [Neighborhood 1] - Family-friendly with great schools
+→ [Neighborhood 2] - Up-and-coming with new development
+→ [Neighborhood 3] - Walkable with local shops
+What you get for your budget:
+→ 3 bedrooms starting at $[price]
+→ Good bones, some updating needed
+→ Strong appreciation potential
+→ Actual community vibes
+Stop scrolling listings you can't afford. Start building your strategy HERE.
+#affordablehomes #firsttimehomebuyer #cityrealestate #budgetfriendly #realestatetips #homeownership</p>
+        <a href="https://www.canva.com/design/DAGyISLUqI8/2FkwsTIc1npSUszzJRcVqQ/view?utm_content=DAGyISLUqI8&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink&mode=preview" target="_blank">Use Template</a>
+      </div>
+    </div>
+  </section>
 
-  </div>
+</div>
+
+<script>
+  function openSidebar() {
+    document.getElementById("sidebar").style.width = "250px";
+  }
+
+  function closeSidebar() {
+    document.getElementById("sidebar").style.width = "0";
+  }
+
+  function closeModal() {
+    document.getElementById("templateModal").style.display = "none";
+  }
+
+  // Close modal when clicking outside of it
+  window.onclick = function(event) {
+    const modal = document.getElementById("templateModal");
+    if (event.target == modal) {
+      modal.style.display = "none";
+    }
+  }
+</script>
+
 </body>
 </html>
 
