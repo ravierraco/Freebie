@@ -248,17 +248,67 @@
       width: 220px;
       overflow: hidden;
       box-shadow: 0 6px 15px rgba(0,0,0,0.4);
-      transition: transform 0.2s;
+      transition: all 0.3s ease;
+      position: relative;
+      cursor: pointer;
+    }
+
+    .card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: linear-gradient(135deg, #ec4899 0%, #ef4444 100%);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      z-index: 0;
+    }
+
+    .card:hover::before {
+      opacity: 1;
     }
 
     .card:hover {
-      transform: scale(1.05);
+      transform: translateY(-8px);
+      box-shadow: 0 12px 24px rgba(236, 72, 153, 0.3);
+    }
+
+    .card:hover .card-content {
+      color: white;
+    }
+
+    .card:hover .card-content h3 {
+      color: white;
+    }
+
+    .card:hover .card-content p {
+      color: white;
+    }
+
+    .card:hover a {
+      background: white;
+      color: #ec4899;
     }
 
     .card img {
       width: 100%;
       height: 300px;
       object-fit: cover;
+      position: relative;
+      z-index: 1;
+      transition: transform 0.3s ease;
+    }
+
+    .card:hover img {
+      transform: scale(1.05);
+    }
+
+    .card-content {
+      position: relative;
+      z-index: 1;
+      transition: color 0.3s ease;
     }
 
     .card h3 {
@@ -266,6 +316,8 @@
       font-size: 1.1rem;
       font-weight: 700;
       text-align: center;
+      color: white;
+      transition: color 0.3s ease;
     }
 
     .card p {
@@ -276,6 +328,7 @@
       line-height: 1.4;
       max-height: 150px;
       overflow-y: auto;
+      transition: color 0.3s ease;
     }
 
     .card a {
@@ -289,10 +342,13 @@
       text-align: center;
       width: fit-content;
       margin: 0 auto 20px;
+      position: relative;
+      z-index: 2;
+      transition: all 0.3s ease;
     }
 
     .card a:hover {
-      background: #d34672;
+      transform: scale(1.05);
     }
 
     .intro-section {
@@ -335,6 +391,138 @@
       text-decoration: underline;
     }
 
+    /* Lead Magnet Card Styles */
+    .lead-magnet-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 30px;
+      margin-top: 30px;
+    }
+
+    .lead-magnet-card {
+      background: white;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      transition: all 0.3s ease;
+      cursor: pointer;
+      position: relative;
+    }
+
+    .lead-magnet-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: linear-gradient(135deg, #ec4899 0%, #ef4444 100%);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      z-index: 0;
+    }
+
+    .lead-magnet-card:hover::before {
+      opacity: 1;
+    }
+
+    .lead-magnet-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 12px 24px rgba(236, 72, 153, 0.3);
+    }
+
+    .lead-magnet-card:hover .lm-content {
+      color: white;
+    }
+
+    .lm-content {
+      position: relative;
+      z-index: 1;
+      transition: color 0.3s ease;
+      color: #2d3748;
+    }
+
+    .lead-magnet-image {
+      width: 100%;
+      height: 200px;
+      overflow: hidden;
+      background: #f0f0f0;
+    }
+
+    .lead-magnet-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.3s ease;
+    }
+
+    .lead-magnet-card:hover .lead-magnet-image img {
+      transform: scale(1.05);
+    }
+
+    .lm-body {
+      padding: 2rem;
+    }
+
+    .lm-body h3 {
+      font-size: 1.5rem;
+      margin-bottom: 0.75rem;
+      color: inherit;
+    }
+
+    .lm-body p {
+      line-height: 1.6;
+      margin-bottom: 1.5rem;
+      color: inherit;
+      opacity: 0.9;
+    }
+
+    .lm-benefits {
+      list-style: none;
+      margin-bottom: 2rem;
+      padding: 0;
+    }
+
+    .lm-benefits li {
+      padding: 0.5rem 0;
+      padding-left: 1.5rem;
+      position: relative;
+      color: inherit;
+      opacity: 0.95;
+    }
+
+    .lm-benefits li:before {
+      content: "✓";
+      position: absolute;
+      left: 0;
+      font-weight: bold;
+      color: inherit;
+    }
+
+    .use-template-btn {
+      display: inline-block;
+      padding: 0.75rem 1.5rem;
+      background: linear-gradient(135deg, #ec4899 0%, #ef4444 100%);
+      color: white;
+      border: 2px solid transparent;
+      border-radius: 8px;
+      font-size: 0.95rem;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      cursor: pointer;
+    }
+
+    .lead-magnet-card:hover .use-template-btn {
+      background: white;
+      color: #ec4899;
+      border-color: white;
+    }
+
+    .use-template-btn:hover {
+      transform: scale(1.05);
+    }
+
     @media (max-width: 768px) {
       .hero-text h1 {
         font-size: 2.5rem;
@@ -350,6 +538,10 @@
 
       .card {
         width: 100%;
+      }
+
+      .lead-magnet-container {
+        grid-template-columns: 1fr;
       }
     }
   </style>
@@ -414,24 +606,72 @@
     </p>
   </div>
 
+  <!-- LEAD MAGNETS Section -->
+  <section>
+    <h2>LEAD MAGNETS</h2>
+    <div class="lead-magnet-container">
+      <!-- Lead Magnet 1 -->
+      <div class="lead-magnet-card" onclick="window.location.href='https://www.canva.com/design/DAGyIVLU--o/34Yb2uY_TvlNyoxx1D5vXg/view?utm_content=DAGyIVLU--o&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink&mode=preview'">
+        <div class="lm-content">
+          <div class="lead-magnet-image">
+            <img src="https://images.unsplash.com/photo-1557200134-90327ee9fafa?w=600&h=400&fit=crop" alt="Email Template">
+          </div>
+          <div class="lm-body">
+            <h3>Preparinng To Sell : 10 Mistakes To Avoid When Selling Your Home</h3>
+            
+            <button class="use-template-btn" onclick="event.stopPropagation(); window.location.href='https://www.canva.com/design/DAGyIVLU--o/34Yb2uY_TvlNyoxx1D5vXg/view?utm_content=DAGyIVLU--o&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink&mode=preview'">Use Template</button>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Lead Magnet 2 -->
+      <div class="lead-magnet-card" onclick="window.location.href='https://www.canva.com/design/DAGyISsUGRY/dbEVlJi-nmdQX15UtW1M0g/view?utm_content=DAGyISsUGRY&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink&mode=preview'">
+        <div class="lm-content">
+          <div class="lead-magnet-image">
+            <img src="https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?w=600&h=400&fit=crop" alt="Pricing Calculator">
+          </div>
+          <div class="lm-body">
+            <h3>Project Pricing Calculator</h3>
+            <p>Calculate accurate project pricing with profit margins and discounts included.</p>
+            
+            <ul class="lm-benefits">
+              <li>Real-time calculations</li>
+              <li>Detailed breakdowns</li>
+              <li>Professional formatting</li>
+              <li>Easy to share with clients</li>
+            </ul>
+            
+            <button class="use-template-btn" onclick="event.stopPropagation(); window.location.href='https://www.canva.com/design/DAGyISsUGRY/dbEVlJi-nmdQX15UtW1M0g/view?utm_content=DAGyISsUGRY&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink&mode=preview'">Use Template</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- REELS Section -->
   <section>
     <h2>REELS</h2>
     <div class="card-container">
       <div class="card">
         <img src="Pre Approved.png" alt="Pre Approved Reel" onclick="openModal('Pre Approved.png', 'Pre-Approved Reel', 'Comment \'APPROVED\' ↓ for the complete home buying checklist\n\nThat moment you get your pre-approval letter and suddenly EVERY listing hits different 😍 The fixer-upper you scrolled past last week? Now it\'s got \'potential\'. That house $20k over budget? \'We can make it work\'. Even the one with the weird layout? \'Actually kind of charming\'.\n\nThis is your sign to:\n→ Set your ACTUAL budget (not your approval amount)\n→ Make your must-have list\n→ Remember: pre-approved ≠ ready to max out\n→ Take a breath before you fall in love with every single property\n\nWho else experienced this energy when they got pre-approved? 🙋‍♀️\n\n#preapproved #homebuyingtips #firsttimehomebuyer #realestatetips #homebuying101 #realestateadvice', 'https://www.canva.com/design/DAGxkT7oQnE/mG0PZYOs9hhqxW1nua2qLg/view?utm_content=DAGxkT7oQnE&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink&mode=preview')" style="cursor: pointer;">
-        <h3>Pre-Approved Reel</h3>
-        <a href="https://www.canva.com/design/DAGxkT7oQnE/mG0PZYOs9hhqxW1nua2qLg/view?utm_content=DAGxkT7oQnE&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink&mode=preview" target="_blank" onclick="event.stopPropagation();">Use Template</a>
+        <div class="card-content">
+          <h3>Pre-Approved Reel</h3>
+          <a href="https://www.canva.com/design/DAGxkT7oQnE/mG0PZYOs9hhqxW1nua2qLg/view?utm_content=DAGxkT7oQnE&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink&mode=preview" target="_blank" onclick="event.stopPropagation();">Use Template</a>
+        </div>
       </div>
       <div class="card">
         <img src="$0 000 000 luxury trick I used on this house.png" alt="Luxury Trick Reel" onclick="openModal('$0 000 000 luxury trick I used on this house.png', 'Luxury Trick Reel', 'Comment \'LUXURY\' ↓ for the full breakdown\n\nThe $0 styling trick that makes any home look like a million bucks ✨\n\nI used this in every listing I stage and buyers consistently think these homes are worth MORE than asking. This costs literally nothing, takes 10 minutes, and instantly elevates your space.\n\nThe secret?\n→ Strategic lighting placement\n→ Removing 1/3 of your furniture\n→ Intentional sightlines through doorways\n→ The 3-point styling rule\n\nBefore using this trick: Homes sat on market 45+ days\nAfter: Average 12 days to offer\n\nSave this and try it in your own space this weekend 👇\n\n#luxuryhomes #homestaging #realestatetips #homeselling #interiordesign #stagingtips', 'https://www.canva.com/design/DAGyJbfUQqc/aipe9ygKkAcHCrEZSpTzjQ/view?utm_content=DAGyJbfUQqc&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink&mode=preview')" style="cursor: pointer;">
-        <h3>Luxury Trick Reel</h3>
-        <a href="https://www.canva.com/design/DAGyJbfUQqc/aipe9ygKkAcHCrEZSpTzjQ/view?utm_content=DAGyJbfUQqc&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink&mode=preview" target="_blank" onclick="event.stopPropagation();">Use Template</a>
+        <div class="card-content">
+          <h3>Luxury Trick Reel</h3>
+          <a href="https://www.canva.com/design/DAGyJbfUQqc/aipe9ygKkAcHCrEZSpTzjQ/view?utm_content=DAGyJbfUQqc&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink&mode=preview" target="_blank" onclick="event.stopPropagation();">Use Template</a>
+        </div>
       </div>
       <div class="card">
         <img src="[city] branded spots.png" alt="City Branded Spots Reel" onclick="openModal('[city] branded spots.png', 'City Spots Reel', 'Comment \'SPOTS\' ↓ for the complete neighborhood guide\n\n[City]\'s most iconic neighborhoods and where the locals actually hang out 📍\n\nEveryone asks me \'what\'s the vibe of [City]?\' so here\'s your insider guide to the spots that make [City] feel like HOME:\n\nDowntown District:\n→ @[localcafe]\n→ @[popularbistro]\n→ @[artgallery]\n\nWaterfront Area:\n→ @[seafoodspot]\n→ @[parkname]\n→ @[brewpub]\n\nHistoric Quarter:\n→ @[bookstore]\n→ @[farmersmarket]\n→ @[vintageshop]\n\nThinking about moving here? These neighborhoods might be your perfect match 🏡\n\n#cityguide #movingtocity #cityrealestate #localliving #neighborhoodguide #cityliving', 'https://www.canva.com/design/DAGyIU8aHjI/JBA2WiTfXQSmCCv-M83Wsg/view?utm_content=DAGyIU8aHjI&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink&mode=preview')" style="cursor: pointer;">
-        <h3>City Spots Reel</h3>
-        <a href="https://www.canva.com/design/DAGyIU8aHjI/JBA2WiTfXQSmCCv-M83Wsg/view?utm_content=DAGyIU8aHjI&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink&mode=preview" target="_blank" onclick="event.stopPropagation();">Use Template</a>
+        <div class="card-content">
+          <h3>City Spots Reel</h3>
+          <a href="https://www.canva.com/design/DAGyIU8aHjI/JBA2WiTfXQSmCCv-M83Wsg/view?utm_content=DAGyIU8aHjI&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink&mode=preview" target="_blank" onclick="event.stopPropagation();">Use Template</a>
+        </div>
       </div>
     </div>
   </section>
@@ -442,13 +682,17 @@
     <div class="card-container">
       <div class="card">
         <img src="wanted.png" alt="Wanted Story" onclick="openModal('wanted.png', 'Wanted Story', 'Engaging story template for your real estate business.', 'https://www.canva.com/design/DAGyJdh5LdA/EDjqZtvYwDtTM2r8tC6M1g/view?utm_content=DAGyJdh5LdA&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink&mode=preview')" style="cursor: pointer;">
-        <h3>Wanted Story</h3>
-        <a href="https://www.canva.com/design/DAGyJdh5LdA/EDjqZtvYwDtTM2r8tC6M1g/view?utm_content=DAGyJdh5LdA&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink&mode=preview" target="_blank" onclick="event.stopPropagation();">Use Template</a>
+        <div class="card-content">
+          <h3>Wanted Story</h3>
+          <a href="https://www.canva.com/design/DAGyJdh5LdA/EDjqZtvYwDtTM2r8tC6M1g/view?utm_content=DAGyJdh5LdA&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink&mode=preview" target="_blank" onclick="event.stopPropagation();">Use Template</a>
+        </div>
       </div>
       <div class="card">
         <img src="This just in [house sold].png" alt="House Sold Story" onclick="openModal('This just in [house sold].png', 'House Sold Story', 'Celebrate your latest sale with this story template.', 'https://www.canva.com/design/DAGyJUOpC-w/adnBGCuRBpfG3Ip0Ldn62A/view?utm_content=DAGyJUOpC-w&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink&mode=preview')" style="cursor: pointer;">
-        <h3>House Sold Story</h3>
-        <a href="https://www.canva.com/design/DAGyJUOpC-w/adnBGCuRBpfG3Ip0Ldn62A/view?utm_content=DAGyJUOpC-w&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink&mode=preview" target="_blank" onclick="event.stopPropagation();">Use Template</a>
+        <div class="card-content">
+          <h3>House Sold Story</h3>
+          <a href="https://www.canva.com/design/DAGyJUOpC-w/adnBGCuRBpfG3Ip0Ldn62A/view?utm_content=DAGyJUOpC-w&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink&mode=preview" target="_blank" onclick="event.stopPropagation();">Use Template</a>
+        </div>
       </div>
     </div>
   </section>
@@ -459,8 +703,10 @@
     <div class="card-container">
       <div class="card">
         <img src="If Cost Is Overwhelming Start Here.png" alt="Affordable Housing Carousel" onclick="openModal('If Cost Is Overwhelming Start Here.png', 'Affordable Housing Guide', 'Comment \'AFFORDABLE\' ↓ for the full neighborhood breakdown\n\nFeeling priced out of [City]? Start HERE 👇\n\n[City] prices got you stressed? You\'re not alone. But here\'s what most people don\'t realize: there are STILL affordable pockets in [City] where your money goes further.\n\nHidden gem neighborhoods under $[price]:\n→ [Neighborhood 1] - Family-friendly with great schools\n→ [Neighborhood 2] - Up-and-coming with new development\n→ [Neighborhood 3] - Walkable with local shops\n\nWhat you get for your budget:\n→ 3 bedrooms starting at $[price]\n→ Good bones, some updating needed\n→ Strong appreciation potential\n→ Actual community vibes\n\nStop scrolling listings you can\'t afford. Start building your strategy HERE.\n\n#affordablehomes #firsttimehomebuyer #cityrealestate #budgetfriendly #realestatetips #homeownership', 'https://www.canva.com/design/DAGyISLUqI8/2FkwsTIc1npSUszzJRcVqQ/view?utm_content=DAGyISLUqI8&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink&mode=preview')" style="cursor: pointer;">
-        <h3>Affordable Housing Guide</h3>
-        <a href="https://www.canva.com/design/DAGyISLUqI8/2FkwsTIc1npSUszzJRcVqQ/view?utm_content=DAGyISLUqI8&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink&mode=preview" target="_blank" onclick="event.stopPropagation();">Use Template</a>
+        <div class="card-content">
+          <h3>Affordable Housing Guide</h3>
+          <a href="https://www.canva.com/design/DAGyISLUqI8/2FkwsTIc1npSUszzJRcVqQ/view?utm_content=DAGyISLUqI8&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink&mode=preview" target="_blank" onclick="event.stopPropagation();">Use Template</a>
+        </div>
       </div>
     </div>
   </section>
