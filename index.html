@@ -17,7 +17,7 @@
       max-width: 1100px;
       margin: 0 auto;
       padding: 0 40px;
-      text-align: left;
+      text-align: center;
     }
 
     .hero {
@@ -223,6 +223,7 @@
 
     section {
       margin: 40px 0;
+      text-align: center;
     }
 
     section h2 {
@@ -238,7 +239,7 @@
       display: flex;
       flex-wrap: wrap;
       gap: 20px;
-      justify-content: flex-start;
+      justify-content: center;
       margin-top: 30px;
     }
 
@@ -355,7 +356,9 @@
       background-color: #1c1c1c;
       border-radius: 12px;
       padding: 30px;
-      margin: 40px 0;
+      margin: 40px auto;
+      max-width: 900px;
+      text-align: left;
     }
 
     .intro-section h3 {
@@ -397,6 +400,9 @@
       grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
       gap: 30px;
       margin-top: 30px;
+      max-width: 900px;
+      margin-left: auto;
+      margin-right: auto;
     }
 
     .lead-magnet-card {
@@ -523,6 +529,28 @@
       transform: scale(1.05);
     }
 
+    /* Newsletter Section */
+    .newsletter {
+      background-color: #1c1c1c;
+      border-radius: 12px;
+      padding: 40px;
+      margin: 60px auto;
+      max-width: 900px;
+      text-align: center;
+    }
+
+    .newsletter h3 {
+      font-size: 2rem;
+      margin-bottom: 10px;
+      color: #fffef1;
+    }
+
+    .newsletter > p {
+      font-size: 1.2rem;
+      margin-bottom: 30px;
+      color: #aaa;
+    }
+
     @media (max-width: 768px) {
       .hero-text h1 {
         font-size: 2.5rem;
@@ -573,7 +601,44 @@
       <h3 id="modalTitle">Template Title</h3>
       <p id="modalDescription">Click "Use Template" below to open this template in Canva and customize it for your real estate business.</p>
       <a id="modalBtn" href="#" class="modal-btn" target="_blank">Use Template</a>
+      </div>
     </div>
+    <script type="text/javascript" async="async" src="//web.webformscr.com/apps/fc3/build/default-handler.js?1758181175060"></script>
+  </section>
+</div>
+
+<script>
+  function openSidebar() {
+    document.getElementById("sidebar").style.width = "250px";
+  }
+
+  function closeSidebar() {
+    document.getElementById("sidebar").style.width = "0";
+  }
+
+  function openModal(imageSrc, title, description, buttonLink) {
+    document.getElementById("modalImage").src = imageSrc;
+    document.getElementById("modalTitle").innerText = title;
+    document.getElementById("modalDescription").innerText = description;
+    document.getElementById("modalBtn").href = buttonLink;
+    document.getElementById("templateModal").style.display = "block";
+  }
+
+  function closeModal() {
+    document.getElementById("templateModal").style.display = "none";
+  }
+
+  // Close modal when clicking outside of it
+  window.onclick = function(event) {
+    const modal = document.getElementById("templateModal");
+    if (event.target == modal) {
+      modal.style.display = "none";
+    }
+  }
+</script>
+
+</body>
+</html>>
   </div>
 </div>
 
@@ -617,7 +682,7 @@
             <img src="preparing to sell.png" alt="Email Template">
           </div>
           <div class="lm-body">
-            <h3>Preparinng To Sell : 10 Mistakes To Avoid When Selling Your Home</h3>
+            <h3>Preparing To Sell: 10 Mistakes To Avoid When Selling Your Home</h3>
             
             <button class="use-template-btn" onclick="event.stopPropagation(); window.location.href='https://www.canva.com/design/DAGyIVLU--o/34Yb2uY_TvlNyoxx1D5vXg/view?utm_content=DAGyIVLU--o&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink&mode=preview'">Use Template</button>
           </div>
@@ -641,7 +706,7 @@
   </section>
 
   <!-- REELS Section -->
- <section>
+  <section>
     <h2>REELS</h2>
     <div class="card-container">
       <div class="card" onclick="openModal('First time buyers index card 8.png', 'You thought you were just saving for the down-payment', 'POV: You thought buying a house was just saving for the downpayment 😅\n\nThen you learned about:\n→ Closing costs (2-5%)\n→ Home inspection ($300-500)\n→ Appraisal fee ($300-600)\n→ Moving costs\n→ Immediate repairs\n→ New furniture\n\nBut don\'t let this scare you - just be prepared! 💪\n\n#homebuying #realtalk #firsttimebuyer', 'https://www.canva.com/design/DAGxkSE2ax8/FhThi_TngGlv_k5lkeUB_g/view?utm_content=DAGxkSE2ax8&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink&mode=preview')">
@@ -674,15 +739,15 @@
   <section>
     <h2>STORIES</h2>
     <div class="card-container">
-      <div class="card">
-        <img src="wanted.png" alt="Wanted Story" onclick="openModal('wanted.png', 'Wanted Story', 'Engaging story template for your real estate business.', 'https://www.canva.com/design/DAGyJdh5LdA/EDjqZtvYwDtTM2r8tC6M1g/view?utm_content=DAGyJdh5LdA&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink&mode=preview')" style="cursor: pointer;">
+      <div class="card" onclick="openModal('wanted.png', 'Wanted Story', 'Engaging story template for your real estate business.', 'https://www.canva.com/design/DAGyJdh5LdA/EDjqZtvYwDtTM2r8tC6M1g/view?utm_content=DAGyJdh5LdA&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink&mode=preview')">
+        <img src="wanted.png" alt="Wanted Story">
         <div class="card-content">
           <h3>Wanted Story</h3>
           <a href="https://www.canva.com/design/DAGyJdh5LdA/EDjqZtvYwDtTM2r8tC6M1g/view?utm_content=DAGyJdh5LdA&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink&mode=preview" target="_blank" onclick="event.stopPropagation();">Use Template</a>
         </div>
       </div>
-      <div class="card">
-        <img src="This just in [house sold].png" alt="House Sold Story" onclick="openModal('This just in [house sold].png', 'House Sold Story', 'Celebrate your latest sale with this story template.', 'https://www.canva.com/design/DAGyJUOpC-w/adnBGCuRBpfG3Ip0Ldn62A/view?utm_content=DAGyJUOpC-w&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink&mode=preview')" style="cursor: pointer;">
+      <div class="card" onclick="openModal('This just in [house sold].png', 'House Sold Story', 'Celebrate your latest sale with this story template.', 'https://www.canva.com/design/DAGyJUOpC-w/adnBGCuRBpfG3Ip0Ldn62A/view?utm_content=DAGyJUOpC-w&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink&mode=preview')">
+        <img src="This just in [house sold].png" alt="House Sold Story">
         <div class="card-content">
           <h3>House Sold Story</h3>
           <a href="https://www.canva.com/design/DAGyJUOpC-w/adnBGCuRBpfG3Ip0Ldn62A/view?utm_content=DAGyJUOpC-w&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink&mode=preview" target="_blank" onclick="event.stopPropagation();">Use Template</a>
@@ -692,7 +757,7 @@
   </section>
 
   <!-- CAROUSELS Section -->
- <section>
+  <section>
     <h2>CAROUSELS</h2>
     <div class="card-container">
       <div class="card" onclick="openModal('neighborhood index card 13.png', 'Would you move here', 'Comment \'MOVE\' ↓ for personalized recommendations\n\nWHAT WOULD HAPPEN IF YOU MOVED HERE 🏡✨\n\nMONTH 1:\nYou discover your new favorite coffee spot\n\nMONTH 3:\nYou\'re on first-name basis with local shop owners\n\nMONTH 6:\nYou can\'t imagine living anywhere else\n\nYEAR 1:\nYou\'re telling everyone to move here too\n\nThis isn\'t just a place - it\'s a lifestyle change. Ready to experience it?\n\n#movingtips #newcity #lifestyle #community #realestate', 'https://www.canva.com/design/DAGyIeinxUY/MQnkejWAdseepp1Zq570DA/view?utm_content=DAGyIeinxUY&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink&mode=preview')">
@@ -703,9 +768,6 @@
         </div>
       </div>
     </div
-
-    </div>
-  </section>
 
 </div>
  <!-- Newsletter Section -->
